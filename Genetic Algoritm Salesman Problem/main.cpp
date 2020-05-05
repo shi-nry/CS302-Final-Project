@@ -10,8 +10,11 @@
 int main()
 {
 
-    while(true)
-    std::cout << "Hello World!\n" << value();
+    Tour t;
+    City c;
+    GeneticAlgorithm::getInst();
+    TourManager::getInst();
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
