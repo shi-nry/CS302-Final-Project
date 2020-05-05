@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Users\mryamz\Documents\GitHub\traveling ga\Traveling-Salesman-Genetic-Implementation\Genetic Algoritm Salesman Problem\City.h(30,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\mryamz\Documents\GitHub\traveling ga\Traveling-Salesman-Genetic-Implementation\Genetic Algoritm Salesman Problem\Tour.h(81,35): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\mryamz\Documents\GitHub\traveling ga\Traveling-Salesman-Genetic-Implementation\Genetic Algoritm Salesman Problem\Population.h(57): warning C4172: returning address of local variable or temporary: mostfit
+  Genetic Algoritm Salesman Problem.vcxproj -> C:\Users\mryamz\Documents\GitHub\traveling ga\Traveling-Salesman-Genetic-Implementation\Genetic Algoritm Salesman Problem\Debug\Genetic Algoritm Salesman Problem.exe

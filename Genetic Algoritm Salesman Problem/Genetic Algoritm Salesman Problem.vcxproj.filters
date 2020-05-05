@@ -15,7 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Genetic Algoritm Salesman Problem.cpp">
+    <ClInclude Include="City.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TourManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tour.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Population.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneticAlgorithm.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

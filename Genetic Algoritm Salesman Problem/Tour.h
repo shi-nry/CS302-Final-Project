@@ -66,6 +66,7 @@ void Tour::constuctRandomChromosone() {
 		setCity(indices[i], *TourManager::getInst()->getCity(i));
 	}
 
+	delete[] indices;
 }
 
 float Tour::getDistance() {
@@ -87,7 +88,7 @@ float Tour::getDistance() {
 
 bool Tour::hasCity(City& c) {
 
-	for (int i = 0; i < TourManager::getInst()->numberOfCities; i++) {
+	for (int i = 0; i < TourManager::getInst()->numberOfCities(); i++) {
 		if (&cities[i] == &c)
 			return true;
 	}
@@ -99,7 +100,7 @@ std::string Tour::getChromosomeAsCSV() {
 
 	std::string chromo;
 
-	for (int gene = 0; gene < TourManager::getInst()->numberOfCities; gene++) {
+	for (int gene = 0; gene < TourManager::getInst()->numberOfCities(); gene++) {
 		chromo += getCity(gene)->getAllele() + ",";
 	}
 

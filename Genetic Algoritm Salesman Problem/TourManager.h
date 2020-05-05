@@ -8,28 +8,37 @@
 #include <vector>
 #include "City.h"
 
+
 class TourManager {
     private:
-        std::vector<City> destinationCities;
         static TourManager* inst;
+
+        std::vector<City> destinationCities;
         TourManager();
 
     public:
+        static TourManager* getInst();
+
         void addCity(City city);
         City* getCity(int index);
         int numberOfCities();
-        static TourManager* getInst();
 };
 
-TourManager* TourManager::inst = 0;
+TourManager::TourManager() {
 
-TourManager* TourManager::getInst() {
+
+}
+
+ TourManager* TourManager::inst = 0;
+
+ TourManager* TourManager::getInst() {
     if (inst == 0) {
         inst = new TourManager();
     }
 
     return inst;
 }
+
 
 //Adds a destination city
 void TourManager::addCity(City city) {

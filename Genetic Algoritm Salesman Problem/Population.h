@@ -17,6 +17,8 @@ public:
 
 	Tour* getFittestElement();
 
+	int getN();
+
 };
 
 
@@ -53,6 +55,10 @@ Tour* Population::getFittestElement() {
 	}
 
 	return &mostfit;
+}
+
+int Population::getN() {
+	return n;
 }
 
 #endif // !__POPULATION_H__
