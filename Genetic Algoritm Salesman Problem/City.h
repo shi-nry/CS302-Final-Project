@@ -21,6 +21,8 @@ class City {
         int getY();
         double distanceTo(City city);
 
+        std::string getAllele();
+
 };
 
 //Constructs a randomly placed city
@@ -53,6 +55,10 @@ double City::distanceTo(City city) {
     double distance = sqrt((xDistance * xDistance) + (yDistance * yDistance));
 
     return distance;
+}
+
+std::string City::getAllele() {
+    return x + " & " + y;
 }
 
 #endif //end City class
