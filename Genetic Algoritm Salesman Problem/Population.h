@@ -27,8 +27,10 @@ Population::Population(int n, bool randomInit) : n{ n } {
 	if (randomInit) {
 		for (int i = 0; i < n; i++) {
 			Tour* solution = new Tour();
-			solution->constuctRandomChromosone();
+			solution->constuctRandomChromosone(); // cities are supposted created here
 			tours[i] = *solution;
+
+
 		}
 	}
 }

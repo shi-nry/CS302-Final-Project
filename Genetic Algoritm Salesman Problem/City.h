@@ -33,9 +33,7 @@ City::City() {
 }
 
 //Constructs a city at chosen x and y location
-City::City(int x, int y) {
-    this->x = x;
-    this->y = y;
+City::City(int x, int y) : x{ x }, y{ y } {
 }
 
 //Gets city's x coordinate
@@ -58,7 +56,16 @@ double City::distanceTo(City city) {
 }
 
 std::string City::getAllele() {
-    return x + " & " + y;
+
+    if (this == nullptr) {
+        std::cout << "WHYYYYYYYYYYYYYYY" << std::endl;
+    }
+    
+    std::string s;
+    s += x;
+    s += '&';
+    s += y;
+    return s;
 }
 
 #endif //end City class

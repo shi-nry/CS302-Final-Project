@@ -1,6 +1,6 @@
 ﻿  main.cpp
 C:\Users\mryamz\Documents\GitHub\traveling ga\Traveling-Salesman-Genetic-Implementation\Genetic Algoritm Salesman Problem\City.h(30,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\mryamz\Documents\GitHub\traveling ga\Traveling-Salesman-Genetic-Implementation\Genetic Algoritm Salesman Problem\Tour.h(78,35): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\mryamz\Documents\GitHub\traveling ga\Traveling-Salesman-Genetic-Implementation\Genetic Algoritm Salesman Problem\Tour.h(83,35): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
 C:\Users\mryamz\Documents\GitHub\traveling ga\Traveling-Salesman-Genetic-Implementation\Genetic Algoritm Salesman Problem\GeneticAlgorithm.h(86,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\mryamz\Documents\GitHub\traveling ga\Traveling-Salesman-Genetic-Implementation\Genetic Algoritm Salesman Problem\GeneticAlgorithm.h(87,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\mryamz\Documents\GitHub\traveling ga\Traveling-Salesman-Genetic-Implementation\Genetic Algoritm Salesman Problem\GeneticAlgorithm.h(118,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data

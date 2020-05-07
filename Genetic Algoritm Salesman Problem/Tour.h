@@ -32,7 +32,7 @@ Tour::Tour() {
 }
 
 void Tour::setCity(int pos, City& city) {
-	//std::cout << pos << std::endl;
+	std::cout << pos << std::endl;
 	cities[pos] = city;
 	fitness = 0;
 	distance = 0;
@@ -53,14 +53,19 @@ void Tour::constuctRandomChromosone() {
 	int size = TourManager::getInst()->numberOfCities();
 	int* indices = new int[size];
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < size; i++) {
 		indices[i] = i;
+	}
 
 	random_shuffle(indices, indices + size);
 
 
 	for (int i = 0; i < TourManager::getInst()->numberOfCities(); i++) {
-		setCity(indices[i], *TourManager::getInst()->getCity(i));
+		City* city = TourManager::getInst()->getCity(i);
+
+		cities[indices[i]] = *city;
+
+		//std::cout << cities[indices[i]].getAllele() << std::endl;
 	}
 
 	delete[] indices;
@@ -98,8 +103,11 @@ std::string Tour::getChromosomeAsCSV() {
 	std::string chromo;
 
 	for (int gene = 0; gene < TourManager::getInst()->numberOfCities(); gene++) {
-		City* city = getCity(gene);
-		chromo += city->getAllele() + ",";
+		chromo += std::to_string(cities[gene].getX());
+		chromo += "&";
+		chromo += std::to_string(cities[gene].getY());
+		chromo += ",";
+
 	}
 
 	return chromo;

@@ -51,7 +51,7 @@ int main()
     tm->addCity(*city1); 
 
     City *city2 = new City(city_coords[2], city_coords[3]);
-    tm->addCity(*city2);
+    tm->addCity(*city2); 
 
     City *city3 = new City(city_coords[4], city_coords[5]);
     tm->addCity(*city3);
@@ -64,8 +64,9 @@ int main()
 
     //Initialize pop
     Population* pop = new Population(50, true);
-    std::cout << "Initial distance: " << pop->getFittestElement()->getDistance() << std::endl;
-    std::cout << "Initial Recommendation: " << pop->getFittestElement()->getChromosomeAsCSV() << std::endl;
+    Tour init = *pop->getFittestElement();
+    std::cout << "Initial distance: " << init.getDistance() << std::endl;
+    std::cout << "Initial Recommendation: " << init.getChromosomeAsCSV() << std::endl;
 
     //Evolve pop for 100 gens
     pop = ga->evolve(*pop);
