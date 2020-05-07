@@ -43,39 +43,39 @@ GeneticAlgorithm* GeneticAlgorithm::getInst() {
 
 Tour* GeneticAlgorithm::selection(Population& pop) {
 
-	Population tournament(tournament_size, false);
-	int size = tournament.getN();
+	Population* tournament = new Population(tournament_size, false);
+	int size = tournament->getN();
 
 
 	for (int i = 0; i < tournament_size; i++) {
-		tournament.setElement(i, *pop.getElement((int)(value() * (float)size)));
+		tournament->setElement(i, *pop.getElement((int)(value() * (float)size)));
 	}
 
-	return tournament.getFittestElement();
+	return tournament->getFittestElement();
 }
 
 Population* GeneticAlgorithm::evolve(Population& pop) {
 
-	Population next_generation(pop.getN(), false);
+	Population* next_generation = new Population(pop.getN(), false);
 
 	int elitismOffset = 0;
 	if (using_elites) {
-		next_generation.setElement(0, *pop.getFittestElement());
+		next_generation->setElement(0, *pop.getFittestElement());
 		elitismOffset = 1;
 	}
 
-	for (int i = elitismOffset; i < next_generation.getN(); i++) {
+	for (int i = elitismOffset; i < next_generation->getN(); i++) {
 		Tour* parent1 = selection(pop);
 		Tour* parent2 = selection(pop);
 		Tour* child = crossover(*parent1, *parent2);
-		next_generation.setElement(i, *child);
+		next_generation->setElement(i, *child);
 	}
 
-	for (int i = elitismOffset; i < next_generation.getN(); i++) {
-		mutate(*next_generation.getElement(i));
+	for (int i = elitismOffset; i < next_generation->getN(); i++) {
+		mutate(*next_generation->getElement(i));
 	}
 
-	return &next_generation;
+	return next_generation;
 }
 
 Tour* GeneticAlgorithm::crossover(Tour& t1, Tour& t2) {

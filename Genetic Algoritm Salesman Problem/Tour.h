@@ -31,11 +31,8 @@ Tour::Tour() {
 	cities = new City[TourManager::getInst()->numberOfCities()];
 }
 
-Tour::Tour(City* cities) : cities{cities} {
-
-}
-
 void Tour::setCity(int pos, City& city) {
+	//std::cout << pos << std::endl;
 	cities[pos] = city;
 	fitness = 0;
 	distance = 0;
@@ -101,7 +98,8 @@ std::string Tour::getChromosomeAsCSV() {
 	std::string chromo;
 
 	for (int gene = 0; gene < TourManager::getInst()->numberOfCities(); gene++) {
-		chromo += getCity(gene)->getAllele() + ",";
+		City* city = getCity(gene);
+		chromo += city->getAllele() + ",";
 	}
 
 	return chromo;

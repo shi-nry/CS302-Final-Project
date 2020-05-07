@@ -43,7 +43,7 @@ int main()
     city_coords[7] = 0;
 
     city_names[4] = "Las Vegas";
-    city_coords[8] = 560;
+    city_coords[8] = 560; 
     city_coords[9] = 1190;
 
 
@@ -65,6 +65,7 @@ int main()
     //Initialize pop
     Population* pop = new Population(50, true);
     std::cout << "Initial distance: " << pop->getFittestElement()->getDistance() << std::endl;
+    std::cout << "Initial Recommendation: " << pop->getFittestElement()->getChromosomeAsCSV() << std::endl;
 
     //Evolve pop for 100 gens
     pop = ga->evolve(*pop);
@@ -74,7 +75,11 @@ int main()
 
     //Print results
     std::cout << "Final distance: " << pop->getFittestElement()->getDistance() << std::endl;
-    std::cout << "Best solution: " << pop->getFittestElement() << std::endl;
+
+    Tour* best = pop->getFittestElement();
+    std::cout << "Best solution: " << "Travel to ";
+    std::cout << best->getChromosomeAsCSV();
+    std::cout << std::endl;
 
     return 0;
 }
