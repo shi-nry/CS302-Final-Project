@@ -11,6 +11,9 @@
 int main()
 {
 
+
+
+
     Tour t; // <-- not sure what to do with this
     GeneticAlgorithm *ga = GeneticAlgorithm::getInst();
     TourManager *tm = TourManager::getInst();
@@ -18,34 +21,60 @@ int main()
     //Add Cities
     // ^ are we using a class function to do this?
     // I couldn't find one so I just went with the website method
-    City *city1 = new City(x, y); // <-- need to add coordinates
-    tm.addCity(*city1); 
 
-    City *city2 = new City(x, y);
-    tm.addCity(*city2);
+    const int city_count = 5;
+    std::string city_names[5];
+    float city_coords[5 * city_count];
 
-    City *city3 = new City(x, y);
-    tm.addCity(*city3);
+    city_names[0] = "Reno";
+    city_coords[0] = 205;
+    city_coords[1] = 856;
 
-    City *city4 = new City(x, y);
-    tm.addCity(*city4);
+    city_names[1] = "San Francisco";
+    city_coords[2] = 0;
+    city_coords[3] = 1037;
 
-    City *city5 = new City(x, y);
-    tm.addCity(*city5);
+    city_names[2] = "Salt Lake City";
+    city_coords[4] = 817;
+    city_coords[5] = 736;
+
+    city_names[3] = "Seattle";
+    city_coords[6] = 0;
+    city_coords[7] = 0;
+
+    city_names[4] = "Las Vegas";
+    city_coords[8] = 560;
+    city_coords[9] = 1190;
+
+
+    City *city1 = new City(city_coords[0], city_coords[1]); // <-- need to add coordinates
+    tm->addCity(*city1); 
+
+    City *city2 = new City(city_coords[2], city_coords[3]);
+    tm->addCity(*city2);
+
+    City *city3 = new City(city_coords[4], city_coords[5]);
+    tm->addCity(*city3);
+
+    City *city4 = new City(city_coords[6], city_coords[7]);
+    tm->addCity(*city4);
+
+    City *city5 = new City(city_coords[8], city_coords[9]);
+    tm->addCity(*city5);
 
     //Initialize pop
-    Population *pop = new Population(50, true);
-    std::cout << "Initial distance: " << pop->getFittestElement().getN() << endl;
+    Population* pop = new Population(50, true);
+    std::cout << "Initial distance: " << pop->getFittestElement()->getDistance() << std::endl;
 
     //Evolve pop for 100 gens
-    *pop = ga.evolve(pop);
+    pop = ga->evolve(*pop);
     for(int i = 0; i < 100; i++) {
-        *pop = ga.evolve(pop);
+        pop = ga->evolve(*pop);
     }
 
     //Print results
-    std::cout << "Final distance: " << pop->getFittestElement().getDistance() << endl;
-    std::cout << "Best solution: " << pop->getFittestElement() << endl;
+    std::cout << "Final distance: " << pop->getFittestElement()->getDistance() << std::endl;
+    std::cout << "Best solution: " << pop->getFittestElement() << std::endl;
 
     return 0;
 }
