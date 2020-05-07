@@ -5,15 +5,46 @@
 #include "Tour.h"
 #include "City.h"
 #include "GeneticAlgorithm.h"
+#include "Population.h"
 
 
 int main()
 {
 
-    Tour t;
-    City c;
-    GeneticAlgorithm::getInst();
-    TourManager::getInst();
+    Tour t; // <-- not sure what to do with this
+    GeneticAlgorithm *ga = GeneticAlgorithm::getInst();
+    TourManager *tm = TourManager::getInst();
+
+    //Add Cities 
+    City *city1 = new City(x, y); // <-- are we using a class function to do this?
+    TourManager.addCity(*city1); // I couldn't find one so I just went with the website method
+
+    City *city2 = new City(x, y);
+    TourManager.addCity(*city2);
+
+    City *city3 = new City(x, y);
+    TourManager.addCity(*city3);
+
+    City *city4 = new City(x, y);
+    TourManager.addCity(*city4);
+
+    City *city5 = new City(x, y);
+    TourManager.addCity(*city5);
+
+    //Initialize pop
+    Population *pop = new Population(50, true);
+    std::cout << "Initial distance: " << pop->getFittestElement().getN() << endl;
+
+    //Evolve pop for 100 gens
+    *pop = ga.evolve(pop);
+    for(int i = 0; i < 100; i++) {
+        *pop = ga.evolve(pop);
+    }
+
+    //Print results
+    std::cout << "Final distance: " << pop->getFittestElement().getDistance() << endl;
+    std::cout << "Best solution: " << pop->getFittestElement() << endl;
+
 
 }
 
