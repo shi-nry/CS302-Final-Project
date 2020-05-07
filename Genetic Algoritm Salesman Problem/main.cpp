@@ -1,5 +1,7 @@
 // Genetic Algoritm Salesman Problem.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// CS302 - Final Project
+// Traveling Salesman Problem using Genetic Algorithm method
+// Theodore Clapp & Henry Shi
 
 #include <iostream>
 #include "Tour.h"
