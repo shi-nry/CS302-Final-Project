@@ -20,14 +20,11 @@ std::string getNameFromXY(int x, int y, std::string city_names[], int city_coord
 
 int main()
 {
-    Tour t; // <-- not sure what to do with this
+    Tour t;
     GeneticAlgorithm *ga = GeneticAlgorithm::getInst();
     TourManager *tm = TourManager::getInst();
 
     //Add Cities
-    // ^ are we using a class function to do this?
-    // I couldn't find one so I just went with the website method
-
     const int city_count = 5;
     std::string city_names[5];
     int city_coords[5 * city_count];
@@ -53,7 +50,7 @@ int main()
     city_coords[9] = 1190;
 
 
-    City *city1 = new City(city_coords[0], city_coords[1]); // <-- need to add coordinates
+    City *city1 = new City(city_coords[0], city_coords[1]);
     tm->addCity(*city1); 
 
     City *city2 = new City(city_coords[2], city_coords[3]);
@@ -90,8 +87,6 @@ int main()
     for(int i = 0; i < 100; i++) {
         pop = ga->evolve(*pop);
     }
-    
-    
      
     //Print results
     Population p(50000, true);
