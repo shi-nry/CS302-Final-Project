@@ -15,21 +15,23 @@ int main()
     GeneticAlgorithm *ga = GeneticAlgorithm::getInst();
     TourManager *tm = TourManager::getInst();
 
-    //Add Cities 
-    City *city1 = new City(x, y); // <-- are we using a class function to do this?
-    TourManager.addCity(*city1); // I couldn't find one so I just went with the website method
+    //Add Cities
+    // ^ are we using a class function to do this?
+    // I couldn't find one so I just went with the website method
+    City *city1 = new City(x, y); // <-- need to add coordinates
+    tm.addCity(*city1); 
 
     City *city2 = new City(x, y);
-    TourManager.addCity(*city2);
+    tm.addCity(*city2);
 
     City *city3 = new City(x, y);
-    TourManager.addCity(*city3);
+    tm.addCity(*city3);
 
     City *city4 = new City(x, y);
-    TourManager.addCity(*city4);
+    tm.addCity(*city4);
 
     City *city5 = new City(x, y);
-    TourManager.addCity(*city5);
+    tm.addCity(*city5);
 
     //Initialize pop
     Population *pop = new Population(50, true);
@@ -45,7 +47,7 @@ int main()
     std::cout << "Final distance: " << pop->getFittestElement().getDistance() << endl;
     std::cout << "Best solution: " << pop->getFittestElement() << endl;
 
-
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
