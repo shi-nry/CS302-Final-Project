@@ -52,7 +52,7 @@ Tour* Population::getElement(int index) {
 }
 
 Tour* Population::getFittestElement() {
-	Tour mostfit = tours[0];
+	Tour& mostfit = tours[0];
 
 	for (int i = 0; i < n; i++) {
 		if (tours[i].getFitness() >= mostfit.getFitness()) {
