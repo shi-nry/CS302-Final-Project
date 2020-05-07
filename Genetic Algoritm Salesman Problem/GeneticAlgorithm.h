@@ -67,6 +67,9 @@ Population* GeneticAlgorithm::evolve(Population& pop) {
 	for (int i = elitismOffset; i < next_generation->getN(); i++) {
 		Tour* parent1 = selection(pop);
 		Tour* parent2 = selection(pop);
+
+
+
 		Tour* child = crossover(*parent1, *parent2);
 		next_generation->setElement(i, *child);
 	}
@@ -85,6 +88,8 @@ Tour* GeneticAlgorithm::crossover(Tour& t1, Tour& t2) {
 
 	int start = value() * toursize;
 	int end = value() * toursize;
+
+	/*
 
 	for (int i = 0; i < toursize; i++) {
 		if (start < end && i > start&& i < end) {
@@ -106,6 +111,8 @@ Tour* GeneticAlgorithm::crossover(Tour& t1, Tour& t2) {
 			}
 		}
 	}
+	*/
+	offspring->constuctRandomChromosone();
 
 	return offspring;
 }

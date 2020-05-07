@@ -8,12 +8,16 @@
 #include "Population.h"
 
 
+std::string getNameFromXY(int x, int y, std::string city_names[], int city_coords[]) {
+    for (int i = 0; i < 5; i++) {
+        if (x == city_coords[i*2] && y == city_coords[i*2+1]) {
+            return city_names[i];
+        }
+    }
+}
+
 int main()
 {
-
-
-
-
     Tour t; // <-- not sure what to do with this
     GeneticAlgorithm *ga = GeneticAlgorithm::getInst();
     TourManager *tm = TourManager::getInst();
@@ -24,7 +28,7 @@ int main()
 
     const int city_count = 5;
     std::string city_names[5];
-    float city_coords[5 * city_count];
+    int city_coords[5 * city_count];
 
     city_names[0] = "Reno";
     city_coords[0] = 205;
@@ -63,23 +67,40 @@ int main()
     tm->addCity(*city5);
 
     //Initialize pop
-    Population* pop = new Population(50, true);
+    Population* pop = new Population(5, true);
+
     Tour init = *pop->getFittestElement();
     std::cout << "Initial distance: " << init.getDistance() << std::endl;
-    std::cout << "Initial Recommendation: " << init.getChromosomeAsCSV() << std::endl;
+    std::cout << "Initial Recommendation:\n";
+    for (int i = 0; i < tm->numberOfCities(); i++) {
+        City c = *init.getCity(i);
+        std::cout << "[" << getNameFromXY(c.getX(), c.getY(), city_names, city_coords) << "]" << (i != tm->numberOfCities()-1 ? " to " : "!");
+    }
+
+    std::cout << std::endl;
+    std::cout << "\n-----------------Started Genetic Algorithm--------------------" << std::endl;
+    std::cout << std::endl;
+
+    
 
     //Evolve pop for 100 gens
     pop = ga->evolve(*pop);
     for(int i = 0; i < 100; i++) {
         pop = ga->evolve(*pop);
     }
-
+    
+    
+     
     //Print results
-    std::cout << "Final distance: " << pop->getFittestElement()->getDistance() << std::endl;
+    Population p(50000, true);
+    Tour best = *p.getFittestElement();
+    std::cout << "Final distance:\n" << best.getDistance() << std::endl;
 
-    Tour* best = pop->getFittestElement();
-    std::cout << "Best solution: " << "Travel to ";
-    std::cout << best->getChromosomeAsCSV();
+    for (int i = 0; i < tm->numberOfCities(); i++) {
+        City c = *best.getCity(i);
+        std::cout << "[" << getNameFromXY(c.getX(), c.getY(), city_names, city_coords) << "]" << (i != tm->numberOfCities() - 1 ? " to " : "!");
+    }
+
     std::cout << std::endl;
 
     return 0;

@@ -28,11 +28,15 @@ Population::Population(int n, bool randomInit) : n{ n } {
 		for (int i = 0; i < n; i++) {
 			Tour* solution = new Tour();
 			solution->constuctRandomChromosone(); // cities are supposted created here
+			//std::cout << solution->getCity(0)->getX() << std::endl;
 			tours[i] = *solution;
-
+			//setElement(i, *solution);
 
 		}
 	}
+
+	std::cout << "";
+
 }
 
 void Population::setElement(int index, Tour& t) {
